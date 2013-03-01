@@ -8,19 +8,33 @@
   <script language="javascript" type="text/javascript" src="programs/flying-owl/flying-owl.js"></script>
 
   <script Content-Type="text/javascript">
+    // We would normally do an AJAX call to get the various data we need but due to Same Origin Policy issues
+    // with getting data from the file system (as will happen in this project almost always), we use a JSONP 
+    // approach where the JSON files execute their data into existence using this dataCallback() function.
+    var dataCallback = {
+      data: {},
+      save: function (returnData) {
+        dataCallback.data[returnData.key] = returnData.value
+        console.log(dataCallback.data)
+      }
+    }
+
     $(document).ready(function() {
-      $.flyingOWL.init()
+      //$.flyingOWL.start()
     })
   </script>
+  <!-- import databases -->
+  <script language="javascript" type="text/javascript" src="content/database.json"></script>
+  <script language="javascript" type="text/javascript" src="score-card.json"></script>
 
 </head>
 <body>
 
-  <div id="library"> Loading... </div>
+  <div id="library"> Loading Library... </div>
 
-  <div id="player">Loading... </div> 
+  <div id="player"> Loading Player... </div> 
 
-  <div id="score-card"> Loading... </div>
+  <div id="score-card"> Loading Score Card... </div>
 
 </body>
 </html>
