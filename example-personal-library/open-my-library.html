@@ -15,12 +15,11 @@
       data: {},
       save: function (returnData) {
         dataCallback.data[returnData.key] = returnData.value
-        console.log(dataCallback.data)
       }
     }
 
     $(document).ready(function() {
-      //$.flyingOWL.start()
+      $.flyingOWL.init()
     })
   </script>
   <!-- import databases -->

@@ -1,82 +1,65 @@
+(function ($) {
+  $.flyingOWL = {}
 
-$.flyingOWL = {}
+  $.flyingOWL.init = function() {
 
-$.flyingOWL.init = function() {
-
-  // Set up 
-  $.flyingOWL.library.init()
-  $.flyingOWL.player.init()
-  $.flyingOWL.scoreCard.init()
-
-}
-
-$.flyingOWL.library = function() {
-
-  var data
-
-  this.init = function () {
+    // Get ready for flight
+    $.flyingOWL.library.init()
+    $.flyingOWL.scoreCard.init()
 
   }
 
-  this.create = function() {
+  $.flyingOWL.library = {
+
+    data: {},
+
+    init: function () {
+      this.read()
+      this.refreshView()
+    },
+
+    read: function() {
+      if (dataCallback.data['library']) {  
+        this.data = dataCallback.data['library']
+      }
+      else {
+        alert("We could not find the content for your Library :-(.  Is it missing?")
+      }
+
+    },
+
+    refreshView: function() {
+      console.log(this.data)
+    }
 
   }
 
-  this.read = function() {
+  $.flyingOWL.scoreCard = {
+
+    data: {},
+
+    init: function () {
+      this.read()
+      this.refreshView()
+    },
+
+    read: function() {
+      if (dataCallback.data['scoreCard']) {  
+        this.data = dataCallback.data['scoreCard']
+      }
+      else {
+        alert("We could not find your score card :-(.  Is it missing?")
+      }
+
+    },
+
+    refreshView: function() {
+      console.log(this.data)
+    }
 
   }
 
-  this.update = function () {
+  $.flyingOWL.player = {}
 
 
-  }
-
-}
-
-
-
-$.flyingOWL.player = function() {
-
-  var data
-
-  this.init = function() {
-
-  }
-
-  this.create = function() {
-
-  }
-
-  this.read = function() {
-
-  }
-
-  this.update = function (newURI) {
-
-  }
-
-}
-
-
-$.flyingOWL.scoreCard = function() {
-
-  var data
-
-  this.init = function () {
-
-  }
-
-  this.create = function() {
-
-  }
-
-  this.read = function() {
-
-  }
-
-  this.update = function () {
-
-
-  }
-
-}
+})(jQuery);
