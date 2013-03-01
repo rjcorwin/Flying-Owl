@@ -1,7 +1,7 @@
 
-$.portableLibrary = {}
+$.flyingOWL = {}
 
-$.portableLibrary.init = function() {
+$.flyingOWL.init = function() {
 
   // Import the user's score card 
 
@@ -11,7 +11,7 @@ $.portableLibrary.init = function() {
 
 }
 
-$.portableLibrary.scoreCard = function() {
+$.flyingOWL.scoreCard = function() {
 
   var data
 
