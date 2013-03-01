@@ -3,17 +3,20 @@ $.flyingOWL = {}
 
 $.flyingOWL.init = function() {
 
-  // Import the user's score card 
-
-  // Import the content database
-
-  // Show the content database
+  // Set up 
+  $.flyingOWL.library.init()
+  $.flyingOWL.player.init()
+  $.flyingOWL.scoreCard.init()
 
 }
 
-$.flyingOWL.scoreCard = function() {
+$.flyingOWL.library = function() {
 
   var data
+
+  this.init = function () {
+
+  }
 
   this.create = function() {
 
@@ -30,3 +33,50 @@ $.flyingOWL.scoreCard = function() {
 
 }
 
+
+
+$.flyingOWL.player = function() {
+
+  var data
+
+  this.init = function() {
+
+  }
+
+  this.create = function() {
+
+  }
+
+  this.read = function() {
+
+  }
+
+  this.update = function (newURI) {
+
+  }
+
+}
+
+
+$.flyingOWL.scoreCard = function() {
+
+  var data
+
+  this.init = function () {
+
+  }
+
+  this.create = function() {
+
+  }
+
+  this.read = function() {
+
+  }
+
+  this.update = function () {
+
+
+  }
+
+}
