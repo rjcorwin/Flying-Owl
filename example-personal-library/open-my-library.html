@@ -4,32 +4,39 @@
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>My Library</title>
 
+  <!-- dependencies -->
   <script language="javascript" type="text/javascript" src="programs/flying-owl/jquery-1.9.1.js"></script>
   <script language="javascript" type="text/javascript" src="programs/flying-owl/flying-owl.js"></script>
 
+
   <script Content-Type="text/javascript">
+
     // We would normally do an AJAX call to get the various data we need but due to Same Origin Policy issues
     // with getting data from the file system (as will happen in this project almost always), we use a JSONP 
     // approach where the JSON files execute their data into existence using this dataCallback() function.
-    var dataCallback = {
-      data: {},
-      save: function (returnData) {
-        dataCallback.data[returnData.key] = returnData.value
+    var dataCallback = function (returnData) {
+        localStorage.setItem(returnData.key, returnData.value)
       }
     }
 
+
+    // Bootstrap the Flying OWL
     $(document).ready(function() {
       $.flyingOWL.init()
     })
+
   </script>
+
+
   <!-- import databases -->
-  <script language="javascript" type="text/javascript" src="content/database.json"></script>
-  <script language="javascript" type="text/javascript" src="score-card.json"></script>
+  <script language="javascript" type="text/javascript" src="programs/flying-owl/topics.json"></script>
+  <script language="javascript" type="text/javascript" src="my-library-card.json"></script>
+
 
 </head>
 <body>
 
-  <div id="library"> Loading Library... </div>
+  <div id="library">  </div>
 
   <div id="player"> Loading Player... </div> 
 
