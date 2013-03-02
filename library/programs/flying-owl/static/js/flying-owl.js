@@ -1,11 +1,14 @@
 (function ($) {
+
   $.flyingOWL = {}
 
   $.flyingOWL.init = function() {
 
-    // Get ready for flight
-    $.flyingOWL.library.init()
-    $.flyingOWL.scoreCard.init()
+    // The library has been loaded. Move on to the topic list.
+    $("#message").html(
+      "Your library has been loaded. <a href='programs/flying-owl/templates/topic-list.html'>Click here to see the topic list.</a>"
+    )
+    
 
   }
 
@@ -31,13 +34,13 @@
     refreshView: function() {
       console.log(this.data)
       $.each(this.data.content, function(key, resource) {
-        
+
       })
     }
 
   }
 
-  $.flyingOWL.scoreCard = {
+  $.flyingOWL.libraryCard = {
 
     data: {},
 
@@ -47,11 +50,11 @@
     },
 
     read: function() {
-      if (dataCallback.data['scoreCard']) {  
-        this.data = dataCallback.data['scoreCard']
+      if (dataCallback.data['libraryCard']) {  
+        this.data = dataCallback.data['libraryCard']
       }
       else {
-        alert("We could not find your score card :-(.  Is it missing?")
+        alert("We could not find your library card :-(.  Is it missing?")
       }
 
     },
@@ -65,8 +68,5 @@
     }
 
   }
-
-  $.flyingOWL.player = {}
-
 
 })(jQuery);

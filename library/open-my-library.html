@@ -5,8 +5,8 @@
   <title>My Library</title>
 
   <!-- dependencies -->
-  <script language="javascript" type="text/javascript" src="programs/flying-owl/jquery-1.9.1.js"></script>
-  <script language="javascript" type="text/javascript" src="programs/flying-owl/flying-owl.js"></script>
+  <script language="javascript" type="text/javascript" src="programs/flying-owl/static/js/jquery-1.9.1.js"></script>
+  <script language="javascript" type="text/javascript" src="programs/flying-owl/static/js/flying-owl.js"></script>
 
 
   <script Content-Type="text/javascript">
@@ -15,12 +15,11 @@
     // with getting data from the file system (as will happen in this project almost always), we use a JSONP 
     // approach where the JSON files execute their data into existence using this dataCallback() function.
     var dataCallback = function (returnData) {
-        localStorage.setItem(returnData.key, returnData.value)
-      }
+      localStorage.setItem(returnData.key, returnData.value)
     }
+    
 
-
-    // Bootstrap the Flying OWL
+    // Bootstrap the Flying OWL when everything has been loaded.
     $(document).ready(function() {
       $.flyingOWL.init()
     })
@@ -29,18 +28,14 @@
 
 
   <!-- import databases -->
-  <script language="javascript" type="text/javascript" src="programs/flying-owl/topics.json"></script>
+  <script language="javascript" type="text/javascript" src="programs/flying-owl/static/data/topics.json"></script>
   <script language="javascript" type="text/javascript" src="my-library-card.json"></script>
 
 
 </head>
 <body>
 
-  <div id="library">  </div>
-
-  <div id="player"> Loading Player... </div> 
-
-  <div id="score-card"> Loading Score Card... </div>
+  <div id="message"> Loading your library and personal library card... </div>
 
 </body>
 </html>
