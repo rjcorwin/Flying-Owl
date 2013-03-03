@@ -21,11 +21,14 @@
 
   $.flyingOwl.topics = {
 
+
     data: {},
+
 
     init: function () {
       this.read()
     },
+
 
     read: function() {
       this.data = JSON.parse(localStorage.getItem('flyingOwlTopics'))
@@ -35,36 +38,15 @@
       console.log(this.data)
     },
 
-    refreshView: function(path = "") {
 
+    /*
+     * This will build the list on topics.html
+     */
+    refreshView: function(path = "") {
       var currentTopic = this.data
       // If our currentTopic isn't correct, fix it.
       if(currentTopic.path != path || path == "") {
-        
-        // Build a walkway
-        var pathArray = path.split("/")
-        for(var i=0, l=pathArray.length; i<l; i++) {
-          if(i==0) {
-            pathArray[i] = "/"
-          }
-          else {
-            pathArray[i] = pathArray[i-1] + pathArray[i] + "/"
-          }
-        }
-        // The last entry doesn't make sense, drop it
-        pathArray.pop()
-
-        // Walk up the the path redefining currentTopic as we go
-        for(var i=0, l=pathArray.length; i<l; i++) {
-          if(i != 0) { 
-            for(var c=0, len=currentTopic.children.length; c<len; c++) {
-              if(currentTopic.children[c].path == pathArray[i]) {
-                currentTopic = currentTopic.children[c]
-                break
-              }  
-            }
-          }
-        }
+        currentTopic = this.getItemByPath(path)
 
       }
 
@@ -78,6 +60,39 @@
         $("body").append(templates[topic.kind](topic))
       })
 
+    },
+
+
+    /*
+     * This will give you an item from topics.json as it is referered to by its path
+     */
+    getItemByPath: function(path) {
+      // Build a walkway
+      var pathArray = path.split("/")
+      for(var i=0, l=pathArray.length; i<l; i++) {
+        if(i==0) {
+          pathArray[i] = "/"
+        }
+        else {
+          pathArray[i] = pathArray[i-1] + pathArray[i] + "/"
+        }
+      }
+      // The last entry doesn't make sense, drop it
+      pathArray.pop()
+
+      // Walk up the the path redefining currentTopic as we go
+      var currentTopic = $.flyingOwl.topics.data
+      for(var i=0, l=pathArray.length; i<l; i++) {
+        if(i != 0) { 
+          for(var c=0, len=currentTopic.children.length; c<len; c++) {
+            if(currentTopic.children[c].path == pathArray[i]) {
+              currentTopic = currentTopic.children[c]
+              break
+            }  
+          }
+        } 
+      }
+      return currentTopic
     }
 
   }
@@ -108,6 +123,11 @@
     save: function() {
 
     }
+
+  }
+
+  $.flyingOwl.util = {
+    
 
   }
 
