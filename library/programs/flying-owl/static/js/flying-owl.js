@@ -97,6 +97,27 @@
 
   }
 
+  $.flyingOwl.video = {
+
+    data: {},
+
+    init: function () {
+      this.read()
+    },
+
+    read: function() {
+      this.data = $.flyingOwl.topics.getItemByPath($.url().param("path"))
+      console.log(this.data)
+    },
+
+    refreshView: function() {
+      var templates = {
+        "Video Player": Handlebars.compile($("#video-player-template").html())
+      }
+      $("body").append(templates["Video Player"](this.data))
+    }
+  }
+
   $.flyingOwl.libraryCard = {
 
     data: {},

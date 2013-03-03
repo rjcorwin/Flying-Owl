@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Video</title>
+
+
+  <!-- 
+    DEPENDENCIES 
+  -->
+  <script language="javascript" type="text/javascript" src="../static/js/jquery-1.9.1.js"></script>
+  <script language="javascript" type="text/javascript" src="../static/js/jquery.url.js"></script>
+  <script language="javascript" type="text/javascript" src="../static/js/handlebars-1.0.0-rc.3.js"></script>
+  <script language="javascript" type="text/javascript" src="../static/js/flying-owl.js"></script>
+
+
+  <!-- 
+    initialize flyingOwl 
+  -->
+  <script language="javascript" type="text/javascript" >
+    $(document).ready(function() {
+      $.flyingOwl.init()
+      $.flyingOwl.video.init()
+      $.flyingOwl.video.refreshView()
+    })
+  </script>
+
+
+  <!-- 
+    TEMPLATES 
+  -->
+  <script id="video-player-template" type="text/x-handlebars-template">
+    <h1>{{title}}</h1>
+    <video controls><source type="video/webm" src="../../../content/{{youtube_id}}.webmsd.webm" /></video>
+  </script>
+
+
+</head>
+<body>
+
+
+</body>
+</html>
