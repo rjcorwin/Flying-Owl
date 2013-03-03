@@ -35,12 +35,13 @@
       console.log(this.data)
     },
 
-    refreshView: function(path) {
+    refreshView: function(path = "") {
 
-      // Get the children, start at the beginning
       var currentTopic = this.data
-      if(path != null && path != "/") {
-        // build a walkway
+      // If our currentTopic isn't correct, fix it.
+      if(currentTopic.path != path || path == "") {
+        
+        // Build a walkway
         var pathArray = path.split("/")
         for(var i=0, l=pathArray.length; i<l; i++) {
           if(i==0) {
@@ -52,8 +53,8 @@
         }
         // The last entry doesn't make sense, drop it
         pathArray.pop()
-        // walk up the the path redefining currentTopic as we go
-        var currentPath = ""
+
+        // Walk up the the path redefining currentTopic as we go
         for(var i=0, l=pathArray.length; i<l; i++) {
           if(i != 0) { 
             for(var c=0, len=currentTopic.children.length; c<len; c++) {
@@ -64,14 +65,16 @@
             }
           }
         }
+
       }
 
-      console.log(currentTopic)
+      // Send the children for output
       var topicTemplate = Handlebars.compile($("#topic-template").html())
       $.each(currentTopic.children, function(key, topic) {
         // Print the path and title
         $("body").append(topicTemplate(topic))
       })
+
     }
 
   }
