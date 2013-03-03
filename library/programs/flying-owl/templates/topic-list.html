@@ -2,14 +2,21 @@
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>My Library</title>
+  <title>Topic List</title>
 
+
+  <!-- 
+    DEPENDENCIES 
+  -->
   <script language="javascript" type="text/javascript" src="../static/js/jquery-1.9.1.js"></script>
   <script language="javascript" type="text/javascript" src="../static/js/jquery.url.js"></script>
   <script language="javascript" type="text/javascript" src="../static/js/handlebars-1.0.0-rc.3.js"></script>
   <script language="javascript" type="text/javascript" src="../static/js/flying-owl.js"></script>
 
 
+  <!-- 
+    initialize flyingOwl 
+  -->
   <script language="javascript" type="text/javascript" >
     $(document).ready(function() {
       $.flyingOwl.init()
@@ -19,10 +26,18 @@
   </script>
 
 
+  <!-- 
+    TEMPLATES 
+  -->
   <script id="topic-template" type="text/x-handlebars-template">
         <li><a href="topic-list.html?path={{path}}">{{title}}</a></li>
   </script>
-  
+
+  <script id="video-template" type="text/x-handlebars-template">
+        <li><a href="video.html?path={{path}}">{{title}}</a></li>
+  </script>
+
+
 
 </head>
 <body>

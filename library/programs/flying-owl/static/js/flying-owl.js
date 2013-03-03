@@ -69,10 +69,13 @@
       }
 
       // Send the children for output
-      var topicTemplate = Handlebars.compile($("#topic-template").html())
+      var templates = {
+        "Topic": Handlebars.compile($("#topic-template").html()),
+        "Video": Handlebars.compile($("#video-template").html())
+      }
       $.each(currentTopic.children, function(key, topic) {
         // Print the path and title
-        $("body").append(topicTemplate(topic))
+        $("body").append(templates[topic.kind](topic))
       })
 
     }
