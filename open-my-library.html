@@ -5,8 +5,8 @@
   <title>My Library</title>
 
   <!-- dependencies -->
-  <script language="javascript" type="text/javascript" src="programs/flying-owl/static/js/jquery-1.9.1.js"></script>
-  <script language="javascript" type="text/javascript" src="programs/flying-owl/static/js/flying-owl.js"></script>
+  <script language="javascript" type="text/javascript" src="apps/flying-owl/static/js/jquery-1.9.1.js"></script>
+  <script language="javascript" type="text/javascript" src="apps/flying-owl/static/js/flying-owl.js"></script>
 
 
   <script Content-Type="text/javascript">
@@ -29,9 +29,11 @@
   </script>
 
 
-  <!-- import databases -->
-  <script language="javascript" type="text/javascript" src="programs/flying-owl/static/data/topics.json"></script>
-  <!--script language="javascript" type="text/javascript" src="my-library-card.json"></script-->
+  <!-- 
+    Import topic database. We have to encapsulate the db in dataCallback for JSONP
+    to get around the restrictive origin policies for AJAX calls when using file protocol.
+  -->
+  <script language="javascript" type="text/javascript" src="apps/flying-owl/static/data/topics.json"></script>
 
 
 </head>

@@ -9,7 +9,7 @@
 
     // The library has been loaded. Move on to the topic list.
     $("#message").html(
-      "Your library has been loaded. <a href='programs/flying-Owl/templates/topic-list.html'>Click here to see the topic list.</a>"
+      "Your library has been loaded. <a href='apps/flying-Owl/templates/topic-list.html'>Click here to see the topic list.</a>"
     )
     
 
