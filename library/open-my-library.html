@@ -15,13 +15,15 @@
     // with getting data from the file system (as will happen in this project almost always), we use a JSONP 
     // approach where the JSON files execute their data into existence using this dataCallback() function.
     var dataCallback = function (returnData) {
-      localStorage.setItem(returnData.key, returnData.value)
+      var obj = returnData.value
+      var str = JSON.stringify(obj)
+      localStorage.setItem(returnData.key, str)
     }
     
 
     // Bootstrap the Flying OWL when everything has been loaded.
     $(document).ready(function() {
-      $.flyingOWL.init()
+      $.flyingOwl.bootstrap()
     })
 
   </script>
@@ -29,13 +31,13 @@
 
   <!-- import databases -->
   <script language="javascript" type="text/javascript" src="programs/flying-owl/static/data/topics.json"></script>
-  <script language="javascript" type="text/javascript" src="my-library-card.json"></script>
+  <!--script language="javascript" type="text/javascript" src="my-library-card.json"></script-->
 
 
 </head>
 <body>
 
-  <div id="message"> Loading your library and personal library card... </div>
+  <div id="message"> Loading topics and your library card... </div>
 
 </body>
 </html>
