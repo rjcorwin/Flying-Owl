@@ -2,7 +2,7 @@
 <head>
 
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <title>Topic List</title>
+  <title>Video</title>
 
 
   <!-- 
@@ -20,8 +20,8 @@
   <script language="javascript" type="text/javascript" >
     $(document).ready(function() {
       $.flyingOwl.init()
-      var path = $.url().param("path")
-      $.flyingOwl.topics.refreshView(path)
+      $.flyingOwl.video.init()
+      $.flyingOwl.video.refreshView()
     })
   </script>
 
@@ -29,14 +29,11 @@
   <!-- 
     TEMPLATES 
   -->
-  <script id="topic-template" type="text/x-handlebars-template">
-        <li><a href="topic-list.html?path={{path}}">{{title}}</a></li>
+  <script id="video-player-template" type="text/x-handlebars-template">
+    <h1>{{title}}</h1>
+    <video controls><source type="video/webm" src="../../../../content/{{youtube_id}}.webmsd.webm" /></video>
+    <p><a href="../../Khan-Exercises-Player/khan-exercises/exercises/{{related_exercise.slug}}.html">Practice this topic<a/></p>
   </script>
-
-  <script id="video-template" type="text/x-handlebars-template">
-        <li><a href="video.html?path={{path}}">{{title}}</a></li>
-  </script>
-
 
 
 </head>
